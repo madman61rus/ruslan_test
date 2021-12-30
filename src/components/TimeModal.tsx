@@ -46,12 +46,17 @@ const TimeModal: React.FC<TimeModalProps> = ({
     onClose();
   };
 
+  const handleClose = () => {
+    onClose();
+    setTime(value);
+  };
+
   return (
     <Modal
       isVisible={isVisible}
       style={styles.container}
-      onBackButtonPress={onClose}
-      onBackdropPress={onClose}>
+      onBackButtonPress={handleClose}
+      onBackdropPress={handleClose}>
       <View style={StyleSheet.flatten([styles.modal, style])}>
         <Text style={styles.title}>Задайте время</Text>
         <View style={styles.row}>
